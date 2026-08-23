@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BridgeToSuccess Virginia (B2SVA) | Statewide Student-Tutor Matching Platform</title>
+  <meta name="description" content="BridgeToSuccess Virginia (B2SVA) is a statewide non-profit platform connecting immigrant high school students and English Language Learners with volunteer peer and adult mentors across the Commonwealth of Virginia." />
+  <meta name="keywords" content="BridgeToSuccess Virginia, B2SVA, statewide tutoring, immigrant education, Virginia, Richmond, Northern Virginia, Hampton Roads, English language learners, WIDA, Virginia SOL prep" />
+  
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="BridgeToSuccess Virginia | Statewide Student-Tutor Matching" />
+  <meta property="og:description" content="Connecting immigrant youth with dedicated peer and adult mentors across the Commonwealth of Virginia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://b2sva.org" />
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" />
+
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#06b6d4',
+              purple: '#8b5cf6',
+              pink: '#ec4899',
+              dark: '#080d1a',
+              card: 'rgba(15, 23, 42, 0.7)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            cairo: ['Cairo', 'sans-serif'],
+            ethiopic: ['"Noto Sans Ethiopic"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="min-h-screen flex flex-col bg-[#080d1a] text-slate-100 antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- Top Announcement / Contact & Language Bar with Distinct Separation -->
+  <div class="top-utility-bar py-2.5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2.5 text-slate-300">
+        <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px] font-bold uppercase tracking-wider shadow-sm">Statewide Non-Profit</span>
+        <span class="hidden sm:inline font-medium">Commonwealth of Virginia Immigrant & Multilingual Student Success Initiative</span>
+        <span class="sm:hidden font-medium">Statewide Virginia Initiative</span>
+      </div>
+
+      <!-- Contact and Quick Language Prompt Bar -->
+      <div class="flex items-center gap-5">
+        <a href="mailto:admin@b2sva.org" class="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-cyan-300 transition font-medium">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-cyan-400"></i> admin@b2sva.org
+        </a>
+        <a href="tel:2026816019" class="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-purple-300 transition font-medium">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-purple-400"></i> (202) 681-6019
+        </a>
+        <button onclick="UI.openLanguageModal()" id="current-lang-label" class="px-3 py-1 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-cyan-300 font-semibold flex items-center gap-1.5 transition shadow-sm">
+          🇺🇸 <span class="hidden sm:inline">English</span>
+          <i data-lucide="chevron-down" class="w-3 h-3"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 sm:h-22">
+        
+        <!-- Logo & Brand Name -->
+        <a href="#home" class="flex items-center gap-3.5 group">
+          <img src="assets/images/logo.jpg" alt="BridgeToSuccess Virginia Logo" class="w-12 h-12 rounded-2xl object-cover shadow-lg border border-purple-500/30 group-hover:scale-105 transition" />
+          <div class="flex flex-col">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white group-hover:text-cyan-300 transition flex items-center gap-1.5">
+              BridgeToSuccess <span class="text-cyan-400">Virginia</span>
+            </span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400">b2sva.org</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+          <a href="#home" data-route="home" class="nav-link text-cyan-400 font-bold transition hover:text-cyan-300" data-i18n="nav_home">Home</a>
+          <a href="#matching" data-route="matching" class="nav-link text-slate-300 transition hover:text-cyan-300" data-i18n="nav_matching">Peer Matching</a>
+          <a href="#tracks" data-route="tracks" class="nav-link text-slate-300 transition hover:text-cyan-300" data-i18n="nav_tracks">Academic Tracks</a>
+          <a href="#resources" data-route="resources" class="nav-link text-slate-300 transition hover:text-cyan-300" data-i18n="nav_resources">Student Resources</a>
+          <a href="#about" data-route="about" class="nav-link text-slate-300 transition hover:text-cyan-300" data-i18n="nav_about">About Us</a>
+          <a href="#board" data-route="board" class="nav-link text-slate-300 transition hover:text-cyan-300" data-i18n="nav_board">Board Leadership</a>
+        </nav>
+
+        <!-- Role / Classification Menu & CTA Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <!-- Role Classification Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-xl bg-slate-900/90 border border-slate-700/80 text-xs font-bold text-slate-200 hover:border-purple-500/50 flex items-center gap-2 transition">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>Role Selection</span>
+              <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
+            </button>
+            <div class="absolute right-0 top-full mt-2 w-64 bg-slate-900 border border-slate-700/90 rounded-2xl p-2.5 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+              <div class="text-[10px] uppercase tracking-wider text-slate-500 font-bold px-3 py-1.5">Select Your Classification</div>
+              <a href="#student-register" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-xs font-semibold text-cyan-300 transition">
+                <i data-lucide="user" class="w-4 h-4"></i> I am a Student (Tutee)
+              </a>
+              <a href="#tutor-register" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-xs font-semibold text-purple-300 transition">
+                <i data-lucide="award" class="w-4 h-4"></i> High School Peer Tutor
+              </a>
+              <a href="#tutor-register" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-xs font-semibold text-pink-300 transition">
+                <i data-lucide="heart-handshake" class="w-4 h-4"></i> Adult Volunteer Mentor
+              </a>
+            </div>
+          </div>
+
+          <button onclick="navigateTo('student-register')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/20 transition flex items-center gap-1.5" data-i18n="nav_find_tutor">
+            <i data-lucide="search" class="w-3.5 h-3.5"></i> Find a Tutor
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden py-4 border-t border-slate-800 space-y-2">
+        <a href="#home" data-route="home" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_home">Home</a>
+        <a href="#matching" data-route="matching" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_matching">Peer Matching</a>
+        <a href="#tracks" data-route="tracks" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_tracks">Academic Tracks</a>
+        <a href="#resources" data-route="resources" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_resources">Student Resources</a>
+        <a href="#about" data-route="about" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_about">About Us</a>
+        <a href="#board" data-route="board" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-slate-800 font-medium text-sm" data-i18n="nav_board">Board Leadership</a>
+        <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
+          <div class="flex flex-col gap-1 px-3 py-2 bg-slate-950/60 rounded-xl text-xs">
+            <span class="text-slate-400">General Inquiries: <a href="mailto:admin@b2sva.org" class="text-cyan-400 font-bold">admin@b2sva.org</a></span>
+            <span class="text-slate-400">Direct Phone: <a href="tel:2026816019" class="text-purple-400 font-bold">(202) 681-6019</a></span>
+          </div>
+          <a href="#student-register" class="w-full text-center py-2.5 rounded-xl bg-cyan-600 text-white font-bold text-xs">Student Registration</a>
+          <a href="#tutor-register" class="w-full text-center py-2.5 rounded-xl bg-purple-600 text-white font-bold text-xs">Become a Volunteer Tutor</a>
+          <button onclick="UI.openLanguageModal()" class="w-full text-center py-2.5 rounded-xl bg-slate-800 text-slate-300 font-semibold text-xs border border-slate-700">Change Language</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic View Container -->
+  <main id="main-content" class="flex-1">
+    <!-- Views dynamically injected by app.js -->
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/logo.jpg" alt="B2SVA Logo" class="w-10 h-10 rounded-xl object-cover border border-purple-500/40" />
+            <div>
+              <div class="text-lg font-bold text-white">BridgeToSuccess Virginia</div>
+              <div class="text-xs text-purple-400 font-mono">b2sva.org</div>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
+            Connecting Virginia high school immigrant students and English Language Learners with volunteer peer and adult tutors across the Commonwealth of Virginia.
+          </p>
+          <div class="text-xs text-slate-300 space-y-2 pt-1">
+            <div class="font-bold text-slate-200">Contact & Inquiries:</div>
+            <div class="flex items-center gap-2 text-cyan-400">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>General & Board:</span>
+              <a href="mailto:admin@b2sva.org" class="font-semibold hover:underline">admin@b2sva.org</a>
+            </div>
+            <div class="flex items-center gap-2 text-purple-400">
+              <i data-lucide="user" class="w-3.5 h-3.5"></i>
+              <span>Founder (Nik Pirouz):</span>
+              <a href="mailto:nikpirouz@b2sva.org" class="font-semibold hover:underline">nikpirouz@b2sva.org</a>
+            </div>
+            <div class="flex items-center gap-2 text-slate-300">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span>Direct Phone:</span>
+              <a href="tel:2026816019" class="font-semibold hover:underline text-cyan-300">(202) 681-6019</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Tracks Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4">Academic Tracks</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#tracks" class="hover:text-cyan-300 transition">STEM & Mathematics</a></li>
+            <li><a href="#tracks" class="hover:text-cyan-300 transition">English Language / WIDA (1-6)</a></li>
+            <li><a href="#tracks" class="hover:text-cyan-300 transition">Virginia SOL Mastery</a></li>
+            <li><a href="#tracks" class="hover:text-cyan-300 transition">Social Studies & Civics</a></li>
+            <li><a href="#tracks" class="hover:text-cyan-300 transition">Dual Enrollment & CTE</a></li>
+          </ul>
+        </div>
+
+        <!-- Student Resources Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4">Virginia Opportunities</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#resources" class="hover:text-pink-300 transition">Science Fair & VJAS</a></li>
+            <li><a href="#resources" class="hover:text-pink-300 transition">FBLA Virginia Chapter</a></li>
+            <li><a href="#resources" class="hover:text-pink-300 transition">Technology Student Assoc (TSA)</a></li>
+            <li><a href="#resources" class="hover:text-pink-300 transition">DECA Virginia</a></li>
+            <li><a href="#resources" class="hover:text-pink-300 transition">Invention Convention VA</a></li>
+            <li><a href="#resources" class="hover:text-pink-300 transition">Governor's Schools</a></li>
+          </ul>
+        </div>
+
+        <!-- Platform & Leadership Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4">Leadership & Intake</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#about" class="hover:text-white transition">Founder: Nik Pirouz</a></li>
+            <li><a href="#board" class="hover:text-white transition">Board Chair: Sean Murphy</a></li>
+            <li><a href="#student-register" class="hover:text-white transition">Student Registration</a></li>
+            <li><a href="#tutor-register" class="hover:text-white transition">Volunteer Tutor Application</a></li>
+            <li><a href="#admin-db" class="text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1"><i data-lucide="database" class="w-3 h-3"></i> Database Inspector</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright & Protection Notice -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          © 2026 BridgeToSuccess Virginia (<a href="https://b2sva.org" class="text-slate-400 hover:underline">b2sva.org</a>). All rights reserved.
+        </div>
+        <div class="flex items-center gap-4">
+          <span>Statewide Educational Equity</span>
+          <span>•</span>
+          <span>Parental Consent Protected</span>
+          <span>•</span>
+          <button onclick="UI.openLanguageModal()" class="text-cyan-400 hover:underline">Change Language</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Modal Container -->
+  <div id="global-modal-overlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden items-center justify-center p-4 modal-overlay">
+    <div id="global-modal-container" class="w-full flex justify-center">
+      <!-- Injected by UI.openModal -->
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/database.js"></script>
+  <script src="assets/js/matching.js"></script>
+  <script src="assets/js/resources.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
